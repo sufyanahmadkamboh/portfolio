@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sufyan Ahmad | DevOps Engineer</title>
+<meta name="description" content="Sufyan Ahmad: DevOps Engineer in Herborn, Germany. AWS, Kubernetes, Terraform and CI/CD. 5 years of DevOps, 6+ years of production infrastructure.">
+<meta name="author" content="Sufyan Ahmad">
+<meta property="og:title" content="Sufyan Ahmad | DevOps Engineer">
+<meta property="og:description" content="AWS · Kubernetes · Terraform · CI/CD. 40% faster deployments, 100+ AWS resources at 99.9% uptime, Kubernetes workloads handling 6M+ calls per month.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%231b2838'/><text x='32' y='42' font-family='Arial' font-size='26' font-weight='700' fill='%239cc3f0' text-anchor='middle'>SA</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f9fc; --surface: #ffffff; --surface-2: #eef3fa; --ink: #142030; --muted: #5a6577;
+    --line: #dbe3ee; --accent: #1d5fa8; --accent-2: #9cc3f0; --navy: #1b2838; --ok: #1f8a4c;
+    --shadow: 0 1px 2px rgba(20,32,48,.06), 0 6px 20px rgba(20,32,48,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1520; --surface: #152031; --surface-2: #1a2a40; --ink: #e6edf6; --muted: #9aa8bb;
+      --line: #263650; --accent: #6aa8ec; --accent-2: #9cc3f0; --navy: #0b111a; --ok: #4cc286;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e1520; --surface: #152031; --surface-2: #1a2a40; --ink: #e6edf6; --muted: #9aa8bb;
+    --line: #263650; --accent: #6aa8ec; --accent-2: #9cc3f0; --navy: #0b111a; --ok: #4cc286;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: "Inter", "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; font-size: 16px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Nav ---------- */
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--navy) 94%, transparent); backdrop-filter: blur(8px); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; gap: 16px; }
+  .brand { color: #fff; font-weight: 700; letter-spacing: .2px; }
+  .brand span { color: var(--accent-2); }
+  .links { display: flex; gap: 18px; align-items: center; }
+  .links a { color: #d6e2f2; font-size: 14px; font-weight: 500; }
+  .links a:hover { color: #fff; text-decoration: none; }
+  .theme { background: transparent; border: 1px solid #3a4d68; color: #d6e2f2; border-radius: 8px; padding: 5px 9px; cursor: pointer; font-size: 14px; }
+  @media (max-width: 760px) { .links a.hide-sm { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero { background: var(--navy); color: #f3f7fc; padding: 64px 0 84px; }
+  .hero .kicker { color: var(--accent-2); font-weight: 600; font-size: 15px; margin: 0 0 10px; }
+  .hero h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.05; margin: 0 0 14px; font-weight: 800; }
+  .hero .role { font-size: clamp(18px, 2.6vw, 24px); color: #cfe0f5; margin: 0 0 18px; font-weight: 500; }
+  .hero p.lead { max-width: 720px; color: #c3d1e3; font-size: 17px; margin: 0 0 22px; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(156,195,240,.12); border: 1px solid rgba(156,195,240,.35); color: #dbe9fa; padding: 6px 12px; border-radius: 999px; font-size: 14px; margin: 0 8px 8px 0; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #4cc286; }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 1px solid transparent; }
+  .btn:hover { text-decoration: none; filter: brightness(1.08); }
+  .btn.primary { background: #3b82d6; color: #fff; }
+  .btn.ghost { border-color: #3a4d68; color: #e2ecf8; }
+  .btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+  /* ---------- Cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: -46px; }
+  @media (max-width: 900px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .cards { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow); }
+  .card .label { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .4px; }
+  .card .value { font-size: 22px; font-weight: 800; margin: 4px 0; }
+  .card .sub { font-size: 14px; color: var(--muted); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 56px 0 8px; }
+  h2 { font-size: 28px; margin: 0 0 6px; }
+  .h2-sub { color: var(--muted); margin: 0 0 24px; }
+  .grid-2 { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; }
+  @media (max-width: 860px) { .grid-2 { grid-template-columns: 1fr; } }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; box-shadow: var(--shadow); }
+  .results li { margin-bottom: 8px; }
+  .results b { color: var(--accent); }
+
+  /* timeline */
+  .job { position: relative; padding: 0 0 26px 28px; border-left: 2px solid var(--line); margin-left: 6px; }
+  .job:last-child { padding-bottom: 0; }
+  .job::before { content: ""; position: absolute; left: -8px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); }
+  .job h3 { margin: 0; font-size: 19px; }
+  .job .co { color: var(--accent); font-weight: 600; }
+  .job .meta { color: var(--muted); font-size: 14px; margin: 2px 0 10px; }
+  .job ul { margin: 0; padding-left: 18px; }
+  .job li { margin-bottom: 6px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag { font-size: 12.5px; background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); padding: 3px 9px; border-radius: 999px; }
+
+  /* projects */
+  .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .proj { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+  .proj .badge { align-self: flex-start; font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; padding: 3px 8px; border-radius: 6px; margin-bottom: 10px; }
+  .badge.pub { background: rgba(31,138,76,.12); color: var(--ok); }
+  .badge.priv { background: var(--surface-2); color: var(--muted); }
+  .proj h3 { margin: 0 0 6px; font-size: 17px; }
+  .proj p { margin: 0 0 10px; color: var(--muted); font-size: 15px; flex: 1; }
+  .proj .link { font-weight: 600; font-size: 14px; margin-top: 10px; }
+
+  /* skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  .skills h3 { margin: 0 0 10px; font-size: 15px; color: var(--accent); }
+
+  /* certs */
+  .certs { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+  .cert .who { color: var(--muted); font-size: 14px; }
+  .cert.prep { border-style: dashed; }
+
+  table { width: 100%; border-collapse: collapse; }
+  td, th { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 13px; text-transform: uppercase; letter-spacing: .4px; color: var(--muted); }
+  @media (max-width: 640px) { .hide-sm-col { display: none; } }
+
+  .contact { background: var(--navy); color: #e6eef8; border-radius: 16px; padding: 34px 30px; margin: 30px 0 0; }
+  .contact h2 { color: #fff; }
+  .contact p { color: #c3d1e3; }
+  footer { color: var(--muted); font-size: 14px; text-align: center; padding: 34px 0 40px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Sufyan <span>Ahmad</span></a>
+    <div class="links">
+      <a href="#about" class="hide-sm">About</a>
+      <a href="#experience" class="hide-sm">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills" class="hide-sm">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="theme" id="theme" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker">Hi, I'm</p>
+    <h1>Sufyan Ahmad</h1>
+    <p class="role">DevOps Engineer · AWS · Kubernetes · Terraform · CI/CD</p>
+    <p class="lead">I build and run cloud platforms, CI/CD pipelines and Infrastructure as Code for live production systems. Currently that's a US crypto-asset platform; before that, a telecom cloud contact center handling more than 6 million calls a month.</p>
+    <div>
+      <span class="pill"><span class="dot"></span>Open to DevOps, Cloud &amp; Platform roles</span>
+      <span class="pill">📍 Herborn, Germany</span>
+      <span class="pill">✅ Full work authorization, no sponsorship needed</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="Sufyan_Ahmad_CV_DevOps.pdf" download>
+        <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>Download CV</a>
+      <a class="btn ghost" href="mailto:sufyanahmad1@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm8 7l8-5H4l8 5zm0 2L4 8v10h16V8l-8 5z"/></svg>Email me</a>
+      <a class="btn ghost" href="https://linkedin.com/in/sufyanahmadkamboh" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5 2.5 2.5 0 01.01-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.3 21 14.7V21h-4v-5.6c0-1.34-.03-3.06-1.86-3.06-1.87 0-2.15 1.46-2.15 2.96V21H9z"/></svg>LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/sufyanahmadkamboh" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="cards">
+    <div class="card"><div class="label">Experience</div><div class="value">6+ Years</div><div class="sub">Production infrastructure, 5 years in DevOps</div></div>
+    <div class="card"><div class="label">Certifications</div><div class="value">4 Certified</div><div class="sub">AWS Solutions Architect · CEH · Huawei HCIA R&amp;S + Security</div></div>
+    <div class="card"><div class="label">Core Stack</div><div class="value">AWS + Terraform</div><div class="sub">Kubernetes · Docker · Helm · Jenkins · GitHub Actions · Ansible</div></div>
+    <div class="card"><div class="label">Kubernetes in Production</div><div class="value">6M+ Calls / Month</div><div class="sub">Docker + Kubernetes workloads for 4,000+ business clients</div></div>
+  </div>
+
+  <section id="about">
+    <div class="grid-2">
+      <div>
+        <h2>About me</h2>
+        <p>I'm a DevOps Engineer with <b>5 years of DevOps</b> and <b>6+ years of production infrastructure</b> experience. I like taking manual, fragile processes and turning them into automated, repeatable ones, so developers can ship with confidence and production stays calm.</p>
+        <p>I started in networking and VoIP, working with Linux servers, Cisco switches and telephony. That background still shapes how I work: I think about reliability and security from the network layer up. Today I design CI/CD pipelines, run Kubernetes workloads and manage AWS infrastructure as code with Terraform and Ansible.</p>
+        <p>I also mentor junior DevOps engineers, standardize CI/CD practices across teams, and publish free DevOps, AWS and Linux courses on YouTube.</p>
+      </div>
+      <div class="panel">
+        <h3 style="margin-top:0">Results from my work</h3>
+        <ul class="results">
+          <li><b>40% faster deployments</b> after redesigning the CI/CD pipelines of a crypto-asset platform</li>
+          <li><b>20+ multi-environment CI/CD pipelines</b> built and maintained (Jenkins, GitHub Actions)</li>
+          <li><b>100+ AWS resources</b> managed as code at <b>99.9% uptime</b></li>
+          <li>Legacy telecom workloads migrated to <b>Kubernetes</b>, serving <b>4,000+ business clients</b></li>
+          <li><b>Zero-downtime releases</b> through push-to-deploy pipelines</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <p class="h2-sub">Reverse chronological</p>
+    <div class="job">
+      <h3>DevOps Engineer · <span class="co">TekHQS</span></h3>
+      <div class="meta">Feb 2024 – Present · Remote · Client: KresusLabs Inc. (USA)</div>
+      <ul>
+        <li>Redesigned the CI/CD pipelines for the Kresus Crypto Vault platform with Jenkins, Docker and Helm, <b>reducing deployment time by 40%</b>.</li>
+        <li>Manage <b>100+ AWS resources</b> (EC2, VPC, IAM, ALB, S3) as code with Terraform and Ansible at <b>99.9% infrastructure uptime</b>.</li>
+        <li>Built and maintain <b>20+ multi-environment CI/CD pipelines</b> delivering containerized services to Kubernetes via Helm and GitOps.</li>
+        <li>Mentor junior DevOps engineers and standardize CI/CD conventions across development teams.</li>
+        <li>Monitoring, centralized logging and alerting with Prometheus and the ELK Stack.</li>
+      </ul>
+      <div class="tags"><span class="tag">AWS</span><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Helm</span><span class="tag">Jenkins</span><span class="tag">GitHub Actions</span><span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">Prometheus</span><span class="tag">ELK</span></div>
+    </div>
+    <div class="job">
+      <h3>Senior VoIP &amp; DevOps Engineer · <span class="co">LastingSales (HadiTelecom)</span></h3>
+      <div class="meta">Nov 2021 – Feb 2024 · Lahore, Pakistan · Cloud contact-center platform delivered with Zong (China Mobile Pakistan)</div>
+      <ul>
+        <li>Owned the complete production infrastructure of a platform processing <b>6M+ calls per month</b> for <b>4,000+ corporate clients</b>.</li>
+        <li>Migrated legacy applications to <b>Kubernetes</b>, improving fault tolerance and reducing hosting costs; ran microservices and stateful databases (Deployments, StatefulSets).</li>
+        <li>Built Jenkins CI/CD pipelines for <b>zero-downtime releases</b>, from push to Docker build to AWS deployment.</li>
+        <li>Centralized monitoring and logging with Prometheus, Grafana and the ELK Stack; automated server provisioning with Ansible.</li>
+      </ul>
+      <div class="tags"><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Jenkins</span><span class="tag">Ansible</span><span class="tag">AWS</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">ELK</span><span class="tag">Linux</span></div>
+    </div>
+    <div class="job">
+      <h3>Network &amp; VoIP Administrator · <span class="co">Marhaba Laboratories</span></h3>
+      <div class="meta">Aug 2020 – Oct 2021 · Lahore, Pakistan · plus freelance network projects (Ramada Hotel, Radisson) and an internship at HadiTelecom</div>
+      <ul>
+        <li>Administered network, servers, backups and disaster recovery; deployed Linux/Asterisk VoIP systems and Cisco networking.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <p class="h2-sub">Public repositories and private production work</p>
+    <div class="projects">
+      <div class="proj"><span class="badge pub">Public</span><h3>eks-terraform</h3>
+        <p>Modular Terraform framework for Amazon EKS: custom VPC (public/private subnets), S3 remote state with DynamoDB locking, dev/stage/prod environments and Terraform CI in GitHub Actions.</p>
+        <div class="tags"><span class="tag">Terraform</span><span class="tag">AWS EKS</span><span class="tag">GitHub Actions</span></div>
+        <a class="link" href="https://github.com/sufyanahmadkamboh/eks-terraform" target="_blank" rel="noopener">View repository →</a></div>
+      <div class="proj"><span class="badge pub">Public</span><h3>server-monitor</h3>
+        <p>Node.js monitoring API for Ubuntu servers reporting CPU, memory, disk, Nginx and PM2 service health, secured with API-key authentication.</p>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">PM2</span><span class="tag">Nginx</span><span class="tag">Linux</span></div>
+        <a class="link" href="https://github.com/sufyanahmadkamboh/server-monitor" target="_blank" rel="noopener">View repository →</a></div>
+      <div class="proj"><span class="badge pub">Public</span><h3>bash-scripts-by-sufyan</h3>
+        <p>10 reusable Bash tools for Linux operations: HTTP health checks, TLS-expiry checks, service watchdog with auto-restart, log rotation, backups and UFW firewall rules.</p>
+        <div class="tags"><span class="tag">Bash</span><span class="tag">Linux</span><span class="tag">OpenSSL</span><span class="tag">UFW</span></div>
+        <a class="link" href="https://github.com/sufyanahmadkamboh/bash-scripts-by-sufyan" target="_blank" rel="noopener">View repository →</a></div>
+      <div class="proj"><span class="badge priv">Private · client project</span><h3>Kresus Crypto Vault: CI/CD &amp; Release Automation</h3>
+        <p>Redesigned build-and-release pipelines for a US crypto-asset platform; containerized services ship to Kubernetes across environments via Helm and GitOps. Deployment time cut by 40%.</p>
+        <div class="tags"><span class="tag">Jenkins</span><span class="tag">Helm</span><span class="tag">Kubernetes</span><span class="tag">AWS</span></div></div>
+      <div class="proj"><span class="badge priv">Private · LastingSales</span><h3>Telecom Platform: Kubernetes Migration</h3>
+        <p>Moved legacy applications into Docker containers on Kubernetes (StatefulSets for databases), improving fault tolerance and reducing hosting costs for a platform with 6M+ calls per month.</p>
+        <div class="tags"><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Prometheus</span><span class="tag">Grafana</span></div></div>
+      <div class="proj"><span class="badge priv">Private · LastingSales</span><h3>Push-to-Deploy CI/CD</h3>
+        <p>Jenkins pipeline builds Docker images on every push to the development branch and deploys to AWS, giving zero-downtime releases of the management portal.</p>
+        <div class="tags"><span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">AWS</span></div></div>
+      <div class="proj"><span class="badge priv">Private · client project</span><h3>RYT Blockchain Platform: Infrastructure as Code</h3>
+        <p>Provisioned the platform's blockchain infrastructure as code with Terraform following security best practices, making environments reproducible instead of hand-built.</p>
+        <div class="tags"><span class="tag">Terraform</span><span class="tag">Linux</span></div></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <p class="h2-sub">What I use in production</p>
+    <div class="skills">
+      <div class="panel"><h3>Cloud &amp; IaC</h3><div class="tags"><span class="tag">AWS (EC2, VPC, IAM, ALB, S3, EKS)</span><span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">Azure</span></div></div>
+      <div class="panel"><h3>Containers &amp; CI/CD</h3><div class="tags"><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Helm</span><span class="tag">Jenkins</span><span class="tag">GitHub Actions</span><span class="tag">GitOps</span><span class="tag">Argo CD</span></div></div>
+      <div class="panel"><h3>Observability</h3><div class="tags"><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">ELK Stack</span><span class="tag">Splunk</span></div></div>
+      <div class="panel"><h3>Linux &amp; Scripting</h3><div class="tags"><span class="tag">Ubuntu</span><span class="tag">CentOS</span><span class="tag">RHEL</span><span class="tag">Nginx</span><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">Go</span></div></div>
+      <div class="panel"><h3>Security &amp; Networking</h3><div class="tags"><span class="tag">AWS IAM/VPC security</span><span class="tag">Firewalls</span><span class="tag">VPN</span><span class="tag">IDS/IPS</span><span class="tag">TCP/IP</span><span class="tag">BGP · OSPF · VLANs</span><span class="tag">Cisco · Huawei</span></div></div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications &amp; Education</h2>
+    <p class="h2-sub">&nbsp;</p>
+    <div class="certs">
+      <div class="panel cert"><b>AWS Certified Solutions Architect</b><div class="who">Amazon Web Services</div></div>
+      <div class="panel cert"><b>Certified Ethical Hacker (CEH)</b><div class="who">EC-Council</div></div>
+      <div class="panel cert"><b>HCIA Routing &amp; Switching · HCIA Security</b><div class="who">Huawei</div></div>
+      <div class="panel cert prep"><b>Certified Kubernetes Administrator (CKA)</b><div class="who">In preparation</div></div>
+      <div class="panel cert"><b>B.Sc. Computer Science</b><div class="who">Virtual University of Pakistan · 2016 – 2020</div></div>
+      <div class="panel cert"><b>Languages</b><div class="who">English: professional working proficiency · German: A2 and improving · Urdu: native</div></div>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <h2>Free DevOps learning content</h2>
+    <p class="h2-sub">Notes on GitHub, video courses on YouTube</p>
+    <div class="panel" style="padding:6px 16px">
+      <table>
+        <thead><tr><th>Course</th><th class="hide-sm-col">Topics</th><th>Links</th></tr></thead>
+        <tbody>
+          <tr><td><b>DevOps</b></td><td class="hide-sm-col">Git, Docker, Kubernetes, Jenkins, Terraform, Ansible, monitoring</td>
+            <td><a href="https://github.com/sufyanahmadkamboh/DevOps-learning-notes-by-sufyan" target="_blank" rel="noopener">Notes</a> · <a href="https://youtu.be/rUTuNee9SBA?list=PLJB9b1bbB85F23di_ydm_cZ9efYqfRzTq" target="_blank" rel="noopener">▶ Watch</a></td></tr>
+          <tr><td><b>AWS</b></td><td class="hide-sm-col">IAM, EC2, VPC, S3, EKS, Lambda, CloudWatch, CI/CD, IaC</td>
+            <td><a href="https://github.com/sufyanahmadkamboh/aws-notes-by-sufyan" target="_blank" rel="noopener">Notes</a> · <a href="https://youtu.be/R6yysJg_rKE?list=PLJB9b1bbB85EabGxfihssYhe46dZRHXfn" target="_blank" rel="noopener">▶ Watch</a></td></tr>
+          <tr><td><b>Linux</b></td><td class="hide-sm-col">Installation, networking, commands, Vim, Apache, Nginx, SSL</td>
+            <td><a href="https://github.com/sufyanahmadkamboh/linux-notes-by-sufyan" target="_blank" rel="noopener">Notes</a> · <a href="https://youtu.be/tdxQ0O1qu9U?list=PLJB9b1bbB85HR7xXgpuWTibPWTprBEVi0" target="_blank" rel="noopener">▶ Watch</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <h2>Let's talk</h2>
+    <p>I'm based in Herborn, Germany, with full work authorization (no visa sponsorship needed) and available immediately. I'm open to DevOps, Cloud and Platform Engineer roles in Germany or remote.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:sufyanahmad1@gmail.com">sufyanahmad1@gmail.com</a>
+      <a class="btn ghost" href="tel:+491638327239">+49 163 8327239</a>
+      <a class="btn ghost" href="https://linkedin.com/in/sufyanahmadkamboh" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="Sufyan_Ahmad_CV_DevOps.pdf" download>Download CV</a>
+    </div>
+  </div>
+</main>
+
+<footer>© <span id="year"></span> Sufyan Ahmad · DevOps Engineer · Herborn, Germany</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const root = document.documentElement, btn = document.getElementById("theme");
+  try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
+  btn.addEventListener("click", () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+  });
+</script>
+</body>
+</html>
