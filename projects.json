@@ -39,7 +39,22 @@
       "docs": "https://github.com/sufyanahmadkamboh/sufyan-devops-slo-progressive-delivery/blob/main/docs/architecture.md",
       "study": "https://github.com/sufyanahmadkamboh/sufyan-devops-slo-progressive-delivery/tree/main/study",
       "image": "projects/slo-progressive-delivery.png",
-      "linkedin": null
+      "linkedin": null,
+      "slides": [
+        "projects/slo-progressive-delivery/slides/slide-01.webp",
+        "projects/slo-progressive-delivery/slides/slide-02.webp",
+        "projects/slo-progressive-delivery/slides/slide-03.webp",
+        "projects/slo-progressive-delivery/slides/slide-04.webp",
+        "projects/slo-progressive-delivery/slides/slide-05.webp",
+        "projects/slo-progressive-delivery/slides/slide-06.webp",
+        "projects/slo-progressive-delivery/slides/slide-07.webp",
+        "projects/slo-progressive-delivery/slides/slide-08.webp",
+        "projects/slo-progressive-delivery/slides/slide-09.webp",
+        "projects/slo-progressive-delivery/slides/slide-10.webp",
+        "projects/slo-progressive-delivery/slides/slide-11.webp"
+      ],
+      "study_pdf": "https://github.com/sufyanahmadkamboh/sufyan-devops-slo-progressive-delivery/blob/main/study/study-guide.pdf",
+      "tagline": "Releases that undo themselves when the new version is bad."
     }
   ]
 }
