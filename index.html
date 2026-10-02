@@ -602,7 +602,11 @@
       if (!r.ok || j.success === "false" || j.success === false) throw new Error(j.message || "send failed");
       form.reset(); st.textContent = "✔ Thanks! Your message is on its way. I'll reply soon."; st.className = "form-status ok";
     } catch (e) {
-      st.innerHTML = 'Sorry, that didn\'t go through. Please email me at <a href="mailto:' + EMAIL + '" style="color:#9cc3f0">' + EMAIL + '</a>.';
+      const company = form.company.value.trim();
+      const body = msg + "\n\n— " + name + " (" + email + ")" + (company ? "\n" + company : "");
+      const href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Portfolio: " + topic + " from " + name) + "&body=" + encodeURIComponent(body);
+      st.innerHTML = 'The form couldn\'t send right now, but your message is ready to go: ' +
+        '<a class="btn primary" style="margin-top:10px;display:inline-flex" href="' + href + '">Open in my email app</a>';
       st.className = "form-status err";
     } finally { btn.disabled = false; btn.lastChild.textContent = "Send message"; }
   });
