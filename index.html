@@ -204,6 +204,21 @@
     .pulse, .cursor { animation: none; }
     .card, .proj, .btn, .qa { transition: none; }
   }
+
+  /* engineering lab (rendered from projects.json) */
+  .labs { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+  .lab { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; transition: transform .2s ease, border-color .2s ease; }
+  .lab:hover { transform: translateY(-4px); border-color: var(--accent-strong); }
+  .lab img { width: 100%; aspect-ratio: 1200 / 627; object-fit: cover; display: block; border-bottom: 1px solid var(--line); background: #0c1522; }
+  .lab .body { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
+  .lab .meta { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+  .lab .num { font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 600; color: var(--accent); background: var(--surface-2); padding: 2px 8px; border-radius: 6px; }
+  .lab .lvl { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; padding: 3px 8px; border-radius: 6px; background: rgba(59,130,214,.14); color: var(--accent); }
+  .lab h3 { margin: 0 0 6px; font-size: 17.5px; }
+  .lab p { margin: 0 0 10px; color: var(--muted); font-size: 15px; }
+  .lab .problem { font-size: 14px; }
+  .lab .links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: auto; padding-top: 12px; font-weight: 600; font-size: 14px; }
+  .labs-empty { color: var(--muted); }
 </style>
 </head>
 <body>
@@ -216,6 +231,7 @@
       <a href="#about" class="hide-sm">About</a>
       <a href="#experience" class="hide-sm">Experience</a>
       <a href="#projects" class="hide-sm">Projects</a>
+      <a href="#lab" class="hide-sm">Lab</a>
       <a href="#skills" class="hide-sm">Skills</a>
       <a href="#contact" class="hire">Contact me</a>
       <button class="theme" id="theme" aria-label="Toggle dark mode">◐</button>
@@ -360,6 +376,13 @@
         <div class="result">→ Reproducible instead of hand-built environments</div>
         <div class="tags"><span class="tag">Terraform</span><span class="tag">Linux</span></div></div>
     </div>
+  </section>
+
+  <section id="lab">
+    <div class="eyebrow reveal">Engineering lab</div>
+    <h2 class="reveal">DevOps projects I design, build and test end to end</h2>
+    <p class="h2-sub reveal">Each one solves a real operational problem and is a complete repository: architecture, working code, tests, CI, runbooks and documented failure scenarios.</p>
+    <div class="labs" id="labs"><p class="labs-empty">Loading projects… <noscript>See all repositories on <a href="https://github.com/sufyanahmadkamboh">GitHub</a>.</noscript></p></div>
   </section>
 
   <section id="skills">
@@ -553,6 +576,36 @@
     io.unobserve(e.target);
   }), { threshold: 0.15 });
   $$(".reveal").forEach(el => io.observe(el));
+
+  /* engineering lab: cards rendered from the project registry */
+  (async function renderLab() {
+    const box = $("#labs");
+    const esc = t => String(t).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    try {
+      const reg = await (await fetch("projects.json", { cache: "no-cache" })).json();
+      const items = (reg.projects || []).filter(p => p.status === "published").sort((a, b) => b.number - a.number);
+      if (!items.length) { box.innerHTML = '<p class="labs-empty">New projects are on the way.</p>'; return; }
+      box.innerHTML = items.map(p => `
+        <article class="lab reveal">
+          <a href="${esc(p.repository)}" target="_blank" rel="noopener"><img src="${esc(p.image)}" alt="${esc(p.name)} architecture" loading="lazy"></a>
+          <div class="body">
+            <div class="meta"><span class="num">#${String(p.number).padStart(2, "0")}</span><span class="lvl">${esc(p.difficulty)}</span></div>
+            <h3>${esc(p.name)}</h3>
+            <p>${esc(p.summary)}</p>
+            <p class="problem"><b>Problem solved:</b> ${esc(p.problem)}</p>
+            <div class="tags">${[p.primary, ...(p.secondary || [])].map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+            <div class="links">
+              <a href="${esc(p.repository)}" target="_blank" rel="noopener">GitHub →</a>
+              ${p.docs ? `<a href="${esc(p.docs)}" target="_blank" rel="noopener">Architecture</a>` : ""}
+              ${p.linkedin ? `<a href="${esc(p.linkedin)}" target="_blank" rel="noopener">LinkedIn post</a>` : ""}
+            </div>
+          </div>
+        </article>`).join("");
+      box.querySelectorAll(".reveal").forEach(el => io.observe(el));
+    } catch (e) {
+      box.innerHTML = '<p class="labs-empty">See all projects on <a href="https://github.com/sufyanahmadkamboh" target="_blank" rel="noopener">GitHub</a>.</p>';
+    }
+  })();
 
   /* project filters */
   $$(".filter").forEach(b => b.addEventListener("click", () => {

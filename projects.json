@@ -1,0 +1,26 @@
+{
+  "description": "Registry of Sufyan Ahmad's DevOps engineering projects. Rendered by index.html (#lab) and used to keep every new project distinct from the existing ones.",
+  "projects": [
+    {
+      "number": 1,
+      "slug": "slo-progressive-delivery",
+      "name": "SLO-Driven Progressive Delivery with Automated Rollback",
+      "status": "published",
+      "date": "2026-10-02",
+      "difficulty": "Senior",
+      "type": "multi-technology",
+      "summary": "Every release goes out as a canary (20 → 40 → 60 → 80 → 100%) while an automated analysis checks the canary's own error ratio and p95 latency in Prometheus against the service's SLOs.",
+      "problem": "Rolling updates push a bad release to all users before anyone notices, and rollback is a manual decision made under pressure.",
+      "primary": "Argo Rollouts",
+      "secondary": ["Kubernetes", "Prometheus", "Grafana", "Helm", "GitHub Actions", "Docker", "Python"],
+      "engineering_problem": "Release safety: gate production rollouts on SLO/error-budget signals and roll back automatically.",
+      "architecture": "Argo Rollouts canary with background AnalysisTemplate querying Prometheus per pod-template hash; multi-window burn-rate alerts; Grafana provisioned as code; kind-based e2e in GitHub Actions.",
+      "unique_capability": "SLIs/SLOs, error budgets, multi-window multi-burn-rate alerting, progressive delivery with automated rollback, fail-safe analysis.",
+      "skills": ["SLO/SLI design", "Error budgets", "Burn-rate alerting", "Canary releases", "Automated rollback", "PromQL", "promtool rule testing", "Chaos testing", "Kubernetes security"],
+      "repository": "https://github.com/sufyanahmadkamboh/sufyan-devops-slo-progressive-delivery",
+      "docs": "https://github.com/sufyanahmadkamboh/sufyan-devops-slo-progressive-delivery/blob/main/docs/architecture.md",
+      "image": "projects/slo-progressive-delivery.png",
+      "linkedin": null
+    }
+  ]
+}
