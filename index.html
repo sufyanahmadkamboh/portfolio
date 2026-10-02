@@ -465,6 +465,7 @@
 <script>
 (function () {
   const EMAIL = "sufyanahmad1@gmail.com";
+  const WEB3FORMS_KEY = "4bd6f00d-8902-49e0-a433-782d56b97c7d"; // public key: only allows sending messages to my inbox
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
   $("#year").textContent = new Date().getFullYear();
@@ -593,10 +594,11 @@
     if (form._honey.value) return;
     btn.disabled = true; btn.lastChild.textContent = "Sending…";
     try {
-      const r = await fetch("https://formsubmit.co/ajax/" + EMAIL, {
+      const r = await fetch("https://api.web3forms.com/submit", {
         method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify({ name, email, company: form.company.value.trim(), topic, message: msg,
-          _subject: "Portfolio: " + topic + " from " + name, _template: "table", _replyto: email, _captcha: "false" })
+        body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject: "Portfolio: " + topic + " from " + name,
+          from_name: "Sufyan Ahmad Portfolio", replyto: email, name, email,
+          company: form.company.value.trim(), topic, message: msg })
       });
       const j = await r.json().catch(() => ({}));
       if (!r.ok || j.success === "false" || j.success === false) throw new Error(j.message || "send failed");
