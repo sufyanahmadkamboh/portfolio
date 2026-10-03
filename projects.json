@@ -177,6 +177,67 @@
         "projects/postgres-backup-drills/slides/slide-10.webp",
         "projects/postgres-backup-drills/slides/slide-11.webp"
       ]
+    },
+    {
+      "number": 4,
+      "slug": "secure-supply-chain",
+      "name": "Zero-Trust Software Supply Chain for Kubernetes: Signed Builds, SBOMs & Admission Control",
+      "simple_name": "Only code we built ourselves can run in production",
+      "status": "published",
+      "date": "2026-10-03",
+      "difficulty": "Senior",
+      "type": "multi-technology",
+      "summary": "Every app our pipeline builds gets a digital seal and three signed papers: where it came from, a security scan, and a list of everything inside. A guard at the door of the cluster checks the seal and the papers before anything starts. No seal from our pipeline, no entry.",
+      "problem": "Most clusters run any app that sits in the company's image store. If an attacker steals that store's password, slips a bad step into the build, or changes one line in git, their code runs in production and nobody notices.",
+      "benefit": "A stolen password or a sneaky git change is no longer enough to run code in production. Each release is attacked automatically before it ships, and an alert appears when something is blocked or when an app already running turns out to have a serious security hole.",
+      "tagline": "Production only runs apps that carry our pipeline's seal, so a stolen password is not enough to get in.",
+      "primary": "Kubernetes",
+      "secondary": [
+        "Sigstore cosign",
+        "Kyverno",
+        "SLSA",
+        "SBOM (Syft)",
+        "Trivy",
+        "Argo CD",
+        "GitHub Actions",
+        "Prometheus",
+        "Grafana",
+        "Go"
+      ],
+      "engineering_problem": "Clusters trust registry contents and git, not proof of origin; CI pipelines themselves are attack paths.",
+      "architecture": "GitHub Actions builds a distroless Go image, gates on Trivy, pushes by digest and signs keylessly with cosign (OIDC, Fulcio, Rekor) plus SLSA provenance, vulnerability and SBOM attestations; an e2e attack test runs on a fresh kind cluster before the digest is promoted to git; Argo CD deploys; Kyverno CEL policies verify the release identity, provenance, scan and SBOM at admission; Trivy Operator and Prometheus watch what runs.",
+      "unique_capability": "Refuses images signed by a different workflow of the same repository (injected-workflow attacks), tampered and unsigned images, and malicious GitOps commits, and proves it on every release.",
+      "skills": [
+        "Supply-chain security",
+        "Keyless signing (Sigstore)",
+        "SLSA provenance",
+        "SBOMs",
+        "Admission control (Kyverno)",
+        "GitHub Actions hardening",
+        "GitOps (Argo CD)",
+        "Threat modelling",
+        "Adversarial testing",
+        "Prometheus alerting"
+      ],
+      "repository": "https://github.com/sufyanahmadkamboh/sufyan-devops-secure-supply-chain",
+      "docs": "https://github.com/sufyanahmadkamboh/sufyan-devops-secure-supply-chain/blob/main/docs/architecture.md",
+      "study": "https://github.com/sufyanahmadkamboh/sufyan-devops-secure-supply-chain/tree/main/study",
+      "study_pdf": "https://github.com/sufyanahmadkamboh/sufyan-devops-secure-supply-chain/blob/main/study/study-guide.pdf",
+      "image": "projects/secure-supply-chain.png",
+      "linkedin": null,
+      "slides": [
+        "projects/secure-supply-chain/slides/slide-01.webp",
+        "projects/secure-supply-chain/slides/slide-02.webp",
+        "projects/secure-supply-chain/slides/slide-03.webp",
+        "projects/secure-supply-chain/slides/slide-04.webp",
+        "projects/secure-supply-chain/slides/slide-05.webp",
+        "projects/secure-supply-chain/slides/slide-06.webp",
+        "projects/secure-supply-chain/slides/slide-07.webp",
+        "projects/secure-supply-chain/slides/slide-08.webp",
+        "projects/secure-supply-chain/slides/slide-09.webp",
+        "projects/secure-supply-chain/slides/slide-10.webp",
+        "projects/secure-supply-chain/slides/slide-11.webp"
+      ]
     }
   ]
 }
