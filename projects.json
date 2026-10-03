@@ -9,8 +9,8 @@
       "date": "2026-10-02",
       "difficulty": "Senior",
       "type": "multi-technology",
-      "summary": "Every release goes out as a canary (20 → 40 → 60 → 80 → 100%) while an automated analysis checks the canary's own error ratio and p95 latency in Prometheus against the service's SLOs.",
-      "problem": "Rolling updates push a bad release to all users before anyone notices, and rollback is a manual decision made under pressure.",
+      "summary": "When a team releases a new version of an app, this system first gives it to only a few users and checks if it works well. If it does, more users get it step by step. If it doesn't, the system automatically switches everyone back to the old version.",
+      "problem": "Usually a new version goes to all users at once. If it has a bug, everyone is affected, and someone has to notice it and undo it by hand, often in the middle of the night.",
       "primary": "Argo Rollouts",
       "secondary": [
         "Kubernetes",
@@ -54,7 +54,9 @@
         "projects/slo-progressive-delivery/slides/slide-11.webp"
       ],
       "study_pdf": "https://github.com/sufyanahmadkamboh/sufyan-devops-slo-progressive-delivery/blob/main/study/study-guide.pdf",
-      "tagline": "Releases that undo themselves when the new version is bad."
+      "tagline": "New app versions are tested on a few users first and undone automatically if something breaks.",
+      "benefit": "Bad releases reach only a few users for less than a minute and are undone automatically, so teams can release often without fear, and nobody has to watch every release.",
+      "simple_name": "Safe app releases that undo themselves"
     }
   ]
 }

@@ -217,6 +217,10 @@
   .lab h3 { margin: 0 0 6px; font-size: 17.5px; }
   .lab p { margin: 0 0 10px; color: var(--muted); font-size: 15px; }
   .lab .problem { font-size: 14px; }
+  .lab .tech-name { font-size: 13.5px; color: var(--muted); margin: -2px 0 12px; font-style: italic; }
+  .lab .explain { display: grid; gap: 10px; margin-bottom: 4px; }
+  .lab .explain p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink); }
+  .lab .explain .lbl { display: block; font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--accent); margin-bottom: 2px; }
   .lab .links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: auto; padding-top: 12px; font-weight: 600; font-size: 14px; }
   .labs-empty { color: var(--muted); }
   .lab .shot { position: relative; display: block; cursor: pointer; border: 0; padding: 0; background: none; width: 100%; }
@@ -661,9 +665,13 @@
             : `<a href="${esc(p.repository)}" target="_blank" rel="noopener"><img src="${esc(p.image)}" alt="${esc(p.name)} architecture" loading="lazy"></a>`}
           <div class="body">
             <div class="meta"><span class="num">#${String(p.number).padStart(2, "0")}</span><span class="lvl">${esc(p.difficulty)}</span></div>
-            <h3>${esc(p.name)}</h3>
-            <p>${esc(p.summary)}</p>
-            <p class="problem"><b>Problem solved:</b> ${esc(p.problem)}</p>
+            <h3>${esc(p.simple_name || p.name)}</h3>
+            ${p.simple_name ? `<div class="tech-name">${esc(p.name)}</div>` : ""}
+            <div class="explain">
+              <p><span class="lbl">💡 What it does</span>${esc(p.summary)}</p>
+              <p><span class="lbl">⚠️ The problem</span>${esc(p.problem)}</p>
+              ${p.benefit ? `<p><span class="lbl">✅ Why it helps</span>${esc(p.benefit)}</p>` : ""}
+            </div>
             <div class="tags">${[p.primary, ...(p.secondary || [])].map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
             ${p.slides && p.slides.length ? `<button class="story" data-story="${esc(p.slug)}">&#9654; View the visual story</button>` : ""}
             <div class="links">
@@ -709,7 +717,7 @@
     function open(slug, i = 0) {
       cur = bySlug[slug]; if (!cur) return;
       opener = document.activeElement;
-      $("#vTitle").textContent = cur.name;
+      $("#vTitle").textContent = cur.simple_name || cur.name;
       $("#vTagline").textContent = cur.tagline || cur.summary;
       $("#vLinks").innerHTML = links(cur);
       dots.innerHTML = cur.slides.map((_, k) => `<button aria-label="Go to slide ${k + 1}"></button>`).join("");
