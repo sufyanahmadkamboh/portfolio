@@ -118,6 +118,65 @@
         "projects/ansible-server-baseline/slides/slide-10.webp",
         "projects/ansible-server-baseline/slides/slide-11.webp"
       ]
+    },
+    {
+      "number": 3,
+      "slug": "postgres-backup-drills",
+      "name": "PostgreSQL Backups You Can Trust: Restore Drills & Point-in-Time Recovery",
+      "simple_name": "Database backups that are tested every night",
+      "status": "published",
+      "date": "2026-10-03",
+      "difficulty": "Intermediate",
+      "type": "multi-technology",
+      "summary": "Every change in the database is copied to safe, encrypted storage within a minute. Every night the system practises a restore on a spare copy and checks that nothing is missing, like a fire drill. If someone deletes data by mistake, one command brings the database back to the second before it happened.",
+      "problem": "Many teams have backups but never try to restore them. On the day they really need them, they discover the backups are broken, too old, or that nobody knows the password, and the data is gone.",
+      "benefit": "You know every morning that the backups really work, how long a restore takes (6 seconds in the lab) and how much data could be lost (under a minute). An alert appears long before the backups are needed.",
+      "tagline": "Backups are restored and checked automatically every night, so you know they work before you need them.",
+      "primary": "PostgreSQL",
+      "secondary": [
+        "pgBackRest",
+        "S3",
+        "Docker",
+        "Prometheus",
+        "Grafana",
+        "GitHub Actions",
+        "Python",
+        "Bash"
+      ],
+      "engineering_problem": "Untested backups: unknown restorability, RTO and RPO; no point-in-time recovery.",
+      "architecture": "PostgreSQL 18 archives WAL through a dedicated pgBackRest repo host (mutual TLS) into encrypted S3; full/diff/incremental backups, daily verify and an automatic restore drill with amcheck; isolated networks; Pushgateway + Prometheus alerts; point-in-time and lost-volume recovery scripts.",
+      "unique_capability": "Proves restorability every day with measured RTO/RPO, and is tested against an accidental DROP TABLE, a lost database disk, a storage outage, bit rot and a lost encryption key.",
+      "skills": [
+        "Backup & disaster recovery",
+        "Point-in-time recovery",
+        "WAL archiving",
+        "pgBackRest",
+        "Restore drills",
+        "RTO / RPO",
+        "Encryption at rest",
+        "Network isolation",
+        "Prometheus alerting",
+        "Chaos-style testing"
+      ],
+      "repository": "https://github.com/sufyanahmadkamboh/sufyan-devops-postgres-backup-drills",
+      "docs": "https://github.com/sufyanahmadkamboh/sufyan-devops-postgres-backup-drills/blob/main/docs/architecture.md",
+      "study": "https://github.com/sufyanahmadkamboh/sufyan-devops-postgres-backup-drills/tree/main/study",
+      "study_pdf": "https://github.com/sufyanahmadkamboh/sufyan-devops-postgres-backup-drills/blob/main/study/study-guide.pdf",
+      "image": "projects/postgres-backup-drills.png",
+      "linkedin": null,
+      "slides": [
+        "projects/postgres-backup-drills/slides/slide-01.webp",
+        "projects/postgres-backup-drills/slides/slide-02.webp",
+        "projects/postgres-backup-drills/slides/slide-03.webp",
+        "projects/postgres-backup-drills/slides/slide-04.webp",
+        "projects/postgres-backup-drills/slides/slide-05.webp",
+        "projects/postgres-backup-drills/slides/slide-06.webp",
+        "projects/postgres-backup-drills/slides/slide-07.webp",
+        "projects/postgres-backup-drills/slides/slide-08.webp",
+        "projects/postgres-backup-drills/slides/slide-09.webp",
+        "projects/postgres-backup-drills/slides/slide-10.webp",
+        "projects/postgres-backup-drills/slides/slide-11.webp"
+      ]
     }
   ]
 }
