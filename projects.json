@@ -57,6 +57,67 @@
       "tagline": "New app versions are tested on a few users first and undone automatically if something breaks.",
       "benefit": "Bad releases reach only a few users for less than a minute and are undone automatically, so teams can release often without fear, and nobody has to watch every release.",
       "simple_name": "Safe app releases that undo themselves"
+    },
+    {
+      "number": 2,
+      "slug": "ansible-server-baseline",
+      "name": "Automated Linux Server Hardening & Monitoring with Ansible",
+      "simple_name": "One command that locks down a new server",
+      "status": "published",
+      "date": "2026-10-03",
+      "difficulty": "Intermediate",
+      "type": "multi-technology",
+      "summary": "You run one command and a brand-new Linux server is made safe: only people with the right key can log in, unwanted connections are blocked, attackers who keep guessing passwords are blocked automatically, and security updates install by themselves. A dashboard then keeps watching every server.",
+      "problem": "A new server is quite open by default and bots start guessing passwords within minutes. Securing it by hand takes long, every server ends up a bit different, and nobody notices when someone later switches a protection off.",
+      "benefit": "Every server gets exactly the same protection in a few minutes, its security score is measured (61 → 77 in the lab), and running the same command again shows and fixes anything that was changed by hand.",
+      "tagline": "One command makes a new Linux server secure, and a dashboard keeps checking that it stays that way.",
+      "primary": "Ansible",
+      "secondary": [
+        "Molecule",
+        "nftables",
+        "fail2ban",
+        "Lynis",
+        "Prometheus",
+        "Grafana",
+        "GitHub Actions",
+        "Docker",
+        "Python"
+      ],
+      "engineering_problem": "Configuration drift and inconsistent manual hardening of Linux servers.",
+      "architecture": "Nine idempotent Ansible roles with validate-before-write (sshd -t, nft -c, visudo) and lockout guards; Molecule on Ubuntu 24.04/Debian 12/Debian 13; Docker lab with real SSH, attacker and Prometheus/Grafana; check/diff drift detection; Lynis score exported via the node_exporter textfile collector.",
+      "unique_capability": "Safe, repeatable server hardening with measured before/after security scores, drift detection and monitoring of the protections themselves.",
+      "skills": [
+        "Ansible roles & idempotence",
+        "Linux hardening",
+        "SSH security",
+        "nftables firewall",
+        "fail2ban",
+        "auditd",
+        "Lynis auditing",
+        "Molecule testing",
+        "Drift detection",
+        "Prometheus alerting",
+        "Grafana as code"
+      ],
+      "repository": "https://github.com/sufyanahmadkamboh/sufyan-devops-ansible-server-baseline",
+      "docs": "https://github.com/sufyanahmadkamboh/sufyan-devops-ansible-server-baseline/blob/main/docs/architecture.md",
+      "study": "https://github.com/sufyanahmadkamboh/sufyan-devops-ansible-server-baseline/tree/main/study",
+      "study_pdf": "https://github.com/sufyanahmadkamboh/sufyan-devops-ansible-server-baseline/blob/main/study/study-guide.pdf",
+      "image": "projects/ansible-server-baseline.png",
+      "linkedin": null,
+      "slides": [
+        "projects/ansible-server-baseline/slides/slide-01.webp",
+        "projects/ansible-server-baseline/slides/slide-02.webp",
+        "projects/ansible-server-baseline/slides/slide-03.webp",
+        "projects/ansible-server-baseline/slides/slide-04.webp",
+        "projects/ansible-server-baseline/slides/slide-05.webp",
+        "projects/ansible-server-baseline/slides/slide-06.webp",
+        "projects/ansible-server-baseline/slides/slide-07.webp",
+        "projects/ansible-server-baseline/slides/slide-08.webp",
+        "projects/ansible-server-baseline/slides/slide-09.webp",
+        "projects/ansible-server-baseline/slides/slide-10.webp",
+        "projects/ansible-server-baseline/slides/slide-11.webp"
+      ]
     }
   ]
 }
