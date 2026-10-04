@@ -238,6 +238,66 @@
         "projects/secure-supply-chain/slides/slide-10.webp",
         "projects/secure-supply-chain/slides/slide-11.webp"
       ]
+    },
+    {
+      "number": 5,
+      "slug": "eks-devsecops",
+      "name": "EKS DevSecOps Platform: React on Amazon EKS with Terraform and GitHub Actions",
+      "simple_name": "A website on AWS Kubernetes, built safely, tested by attacking it",
+      "status": "published",
+      "date": "2026-10-04",
+      "difficulty": "Senior",
+      "type": "multi-technology",
+      "summary": "Code builds a private network and a Kubernetes cluster on AWS, and every code change is checked for security problems and put online automatically, without any stored cloud password. Then the setup was attacked on purpose, the two weak spots it found were fixed, and everything was deleted again.",
+      "problem": "Putting an app on Kubernetes is quick, but it is easy to leave cloud passwords in the build system, ship software with known security holes, expose servers to the internet, or forget a test cluster that keeps costing money.",
+      "benefit": "Updates go live in under four minutes with security checks on every step, no permanent cloud password exists that could leak, users saw no errors during updates after the fix, and the whole lab cost well under one dollar because it was cleaned up and checked.",
+      "tagline": "A secure path from code to the internet on AWS, proven by attacking it and cleaned up afterwards.",
+      "primary": "Amazon EKS",
+      "secondary": [
+        "Terraform",
+        "AWS VPC",
+        "GitHub Actions",
+        "Trivy",
+        "AWS Load Balancer Controller",
+        "Amazon ECR",
+        "cosign",
+        "React",
+        "Docker"
+      ],
+      "engineering_problem": "Long-lived CI cloud keys, unscanned images, exposed nodes, over-privileged pods, rollout errors and forgotten lab resources.",
+      "architecture": "Terraform builds a two-AZ VPC (private nodes, public ALB only, NAT, flow logs), EKS 1.37 with KMS-encrypted secrets, audit logs, access entries, IMDSv2 hop limit 1 and VPC CNI network policies, ECR and the AWS Load Balancer Controller via Pod Identity; GitHub Actions scans without credentials, then deploys over OIDC by digest with cosign signing, a least-privilege check and a smoke test through the ALB.",
+      "unique_capability": "Built and recorded on a real AWS account in 62 minutes: attacks refused (privileged pod, egress, IMDS), two real weaknesses found and fixed (lateral movement, dropped requests 3/280 to 401/401), verified teardown.",
+      "skills": [
+        "Amazon EKS",
+        "Terraform",
+        "AWS networking",
+        "DevSecOps pipelines",
+        "OIDC / keyless CI",
+        "Kubernetes security",
+        "Network policies",
+        "Zero-downtime delivery",
+        "Image scanning",
+        "Safe teardown"
+      ],
+      "repository": "https://github.com/sufyanahmadkamboh/sufyan-devops-eks-devsecops",
+      "docs": "https://github.com/sufyanahmadkamboh/sufyan-devops-eks-devsecops/blob/main/docs/architecture.md",
+      "study": "https://github.com/sufyanahmadkamboh/sufyan-devops-eks-devsecops/tree/main/study",
+      "study_pdf": "https://github.com/sufyanahmadkamboh/sufyan-devops-eks-devsecops/blob/main/study/study-guide.pdf",
+      "image": "projects/eks-devsecops.png",
+      "linkedin": null,
+      "slides": [
+        "projects/eks-devsecops/slides/slide-01.webp",
+        "projects/eks-devsecops/slides/slide-02.webp",
+        "projects/eks-devsecops/slides/slide-03.webp",
+        "projects/eks-devsecops/slides/slide-04.webp",
+        "projects/eks-devsecops/slides/slide-05.webp",
+        "projects/eks-devsecops/slides/slide-06.webp",
+        "projects/eks-devsecops/slides/slide-07.webp",
+        "projects/eks-devsecops/slides/slide-08.webp",
+        "projects/eks-devsecops/slides/slide-09.webp",
+        "projects/eks-devsecops/slides/slide-10.webp",
+        "projects/eks-devsecops/slides/slide-11.webp"
+      ]
     }
   ]
 }
